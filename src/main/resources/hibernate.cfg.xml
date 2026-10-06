@@ -4,8 +4,8 @@ This XML file does not appear to have any style information associated with it. 
 
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/NomedoEsquema</property>
-        <property name="hibernate.connection.username">meu login</property>
-        <property name="hibernate.connection.password">minha senha</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.format_sql">true</property>
@@ -13,7 +13,11 @@ This XML file does not appear to have any style information associated with it. 
         <mapping class="com.mycompany.pablosaladeaula.Bombeiro" />
         <mapping class="com.mycompany.pablosaladeaula.Viatura" />
         <mapping class="com.mycompany.pablosaladeaula.Patente" />
-        <mapping class="com.mycompany.pablosaladeaula.StsViatura" />         
+        <mapping class="com.mycompany.pablosaladeaula.StsViatura" />
+        <mapping class="com.mycompany.pablosaladeaula.StsBombeiro" />
+        <mapping class="com.mycompany.pablosaladeaula.AutoEscada" />    
+        <mapping class="com.mycompany.pablosaladeaula.UnidadeResgate" /> 
+        <mapping class="com.mycompany.pablosaladeaula.TelefoneContato" />   
     </session-factory>
 </hibernate-configuration>
 

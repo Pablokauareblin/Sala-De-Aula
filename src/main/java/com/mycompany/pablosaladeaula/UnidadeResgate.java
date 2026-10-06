@@ -11,22 +11,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/**
- *
- * @author aluno
- */
 @Entity
-@Table(name = "Patente")
-public class Patente {
+@Table(name = "Unidade_Resgate")
+public class UnidadeResgate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pat_id", unique = true, nullable = false)
+    @Column(name = "unr_id")
     private Integer id;
-    @Column(name = "pat_sigla", length = 10, nullable = false)
-    private String sigla;
-    @Column(name = "pat_descricao", length = 45)
-    private String descricao;
+    @Column(name = "unr_capacidade")
+    private Integer capacidade;
 
     public Integer getId() {
         return id;
@@ -36,34 +30,24 @@ public class Patente {
         this.id = id;
     }
 
-    public String getSigla() {
-        return sigla;
+    public Integer getCapacidade() {
+        return capacidade;
     }
 
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
+    public void setCapacidade(Integer capacidade) {
+        this.capacidade = capacidade;
     }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    @Override
+     @Override
     public boolean equals(Object obj) {
 
-        if (obj instanceof Patente) {
-            Patente aux = (Patente) obj;
-            if (aux.getSigla() != null && aux.getId() != null) {
-                if ((aux.getId().equals(this.id)) && (aux.getSigla().equals(this.sigla))) {
-                    return true;
-                } else {
-                    return false;
-                }
+        if (obj instanceof UnidadeResgate) {
+            UnidadeResgate aux = (UnidadeResgate) obj;
+            if (aux.getCapacidade() != null && aux.getId() != null) {
+            if ((aux.getId().equals(this.id)) && (aux.getCapacidade().equals(this.capacidade))) {
+                return true;
             } else {
+                return false;
+            }}else{
                 return false;
             }
         } else {

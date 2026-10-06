@@ -11,22 +11,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-/**
- *
- * @author aluno
- */
-@Entity
-@Table(name = "Patente")
-public class Patente {
 
+
+@Entity
+@Table(name = "Telefone_Contato")
+public class TelefoneContato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pat_id", unique = true, nullable = false)
+    @Column(name = "tec_id")
     private Integer id;
-    @Column(name = "pat_sigla", length = 10, nullable = false)
-    private String sigla;
-    @Column(name = "pat_descricao", length = 45)
-    private String descricao;
+    @Column(name = "tec_numero")
+    private String numero;
+    @Column(name = "tec_tipo")
+    private String tipo;
 
     public Integer getId() {
         return id;
@@ -36,34 +33,32 @@ public class Patente {
         this.id = id;
     }
 
-    public String getSigla() {
-        return sigla;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
-
-    @Override
+     @Override
     public boolean equals(Object obj) {
 
-        if (obj instanceof Patente) {
-            Patente aux = (Patente) obj;
-            if (aux.getSigla() != null && aux.getId() != null) {
-                if ((aux.getId().equals(this.id)) && (aux.getSigla().equals(this.sigla))) {
-                    return true;
-                } else {
-                    return false;
-                }
+        if (obj instanceof TelefoneContato) {
+            TelefoneContato aux = (TelefoneContato) obj;
+            if (aux.getId() != null && aux.getNumero() != null) {
+            if ((aux.getId().equals(this.id)) && (aux.getNumero().equals(this.numero))) {
+                return true;
             } else {
+                return false;
+            }}else{
                 return false;
             }
         } else {
@@ -76,5 +71,4 @@ public class Patente {
     public int hashCode() {
         return getClass().hashCode();
     }
-
 }

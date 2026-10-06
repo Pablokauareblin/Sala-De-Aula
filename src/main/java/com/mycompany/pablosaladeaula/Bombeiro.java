@@ -12,11 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 
-/**
- * s
- *
- * @author aluno
- */
+
 @Entity
 @Table(name = "Bombeiro")
 public class Bombeiro {

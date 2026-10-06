@@ -15,16 +15,16 @@ import jakarta.persistence.Table;
  * @author aluno
  */
 @Entity
-@Table(name = "StsViatura")
+@Table(name = "Status_Viatura")
 public class StsViatura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "sts_id")
+    @Column(name = "stv_id")
     private Integer id;
-    @Column(name = "sts_descricao")
+    @Column(name = "stv_descricao")
     private String descricao;
-    @Column(name = "sts_sigla")
+    @Column(name = "stv_sigla")
     private String sigla;
 
     public Integer getId() {
@@ -49,5 +49,28 @@ public class StsViatura {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
+    }
+     @Override
+    public boolean equals(Object obj) {
+
+        if (obj instanceof StsViatura) {
+            StsViatura aux = (StsViatura) obj;
+            if (aux.getSigla() != null && aux.getId() != null) {
+            if ((aux.getId().equals(this.id)) && (aux.getSigla().equals(this.sigla))) {
+                return true;
+            } else {
+                return false;
+            }}else{
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

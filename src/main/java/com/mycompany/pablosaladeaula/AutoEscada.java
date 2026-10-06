@@ -16,13 +16,14 @@ import jakarta.persistence.Table;
  * @author aluno
  */
 @Entity
-@Table (name = "AutoEscada")
+@Table (name = "Auto_Escada")
 public class AutoEscada {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "aue_id")
     private Integer id;
-    @Column(name = "aut_alt_max")
+    @Column(name = "aue_alt_max")
     private Integer altMax;
 
     public Integer getId() {
@@ -40,5 +41,27 @@ public class AutoEscada {
     public void setAltMax(Integer altMax) {
         this.altMax = altMax;
     }
+     @Override
+    public boolean equals(Object obj) {
 
+        if (obj instanceof AutoEscada) {
+            AutoEscada aux = (AutoEscada) obj;
+            if (aux.getAltMax() != null && aux.getId() != null) {
+            if ((aux.getId().equals(this.id)) && (aux.getAltMax().equals(this.altMax))) {
+                return true;
+            } else {
+                return false;
+            }}else{
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
