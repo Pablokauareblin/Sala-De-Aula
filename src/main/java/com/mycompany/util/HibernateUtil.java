@@ -1,4 +1,4 @@
-package com.mycompany.palosaladeaula.util;
+package com.mycompany.util;
 
 
 import org.hibernate.SessionFactory;
