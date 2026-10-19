@@ -17,7 +17,8 @@ This XML file does not appear to have any style information associated with it. 
         <mapping class="com.mycompany.pablosaladeaula.StsBombeiro" />
         <mapping class="com.mycompany.pablosaladeaula.AutoEscada" />    
         <mapping class="com.mycompany.pablosaladeaula.UnidadeResgate" /> 
-        <mapping class="com.mycompany.pablosaladeaula.TelefoneContato" />   
+        <mapping class="com.mycompany.pablosaladeaula.TelefoneContato" />  
+        <mapping class="com.mycompany.pablosaladeaula.Usuario" /> 
     </session-factory>
 </hibernate-configuration>
 

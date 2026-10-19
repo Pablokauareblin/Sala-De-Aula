@@ -9,7 +9,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -27,6 +31,8 @@ public class Patente {
     private String sigla;
     @Column(name = "pat_descricao", length = 45)
     private String descricao;
+    @ManyToMany (mappedBy = "patente")
+    private Set <Bombeiro> bombeiro = new HashSet<Bombeiro>();
 
     public Integer getId() {
         return id;
@@ -51,7 +57,15 @@ public class Patente {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
+    
+    public Set <Bombeiro> getBombeiro() {
+        return bombeiro;
+    }
+    
+    public void setBombeiro(Set <Bombeiro> bombeiro) {
+        this.bombeiro = bombeiro;
+    }
+    
     @Override
     public boolean equals(Object obj) {
 
