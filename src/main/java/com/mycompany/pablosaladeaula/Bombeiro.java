@@ -43,7 +43,7 @@ public class Bombeiro {
     @OneToMany (mappedBy = "bombeiro")
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
     @ManyToMany
-    @JoinTable (name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id",inverseJoinColumns = @JoinColumn(name = "pat_id")))
+    @JoinTable (name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"))
     
     private Set<Patente> patente = new HashSet<Patente>();
     
@@ -91,6 +91,7 @@ public class Bombeiro {
         this.guerra = guerra;
     }
     
+/*
     public Set<Patente> getPatente() {
         return patente;
     }
@@ -98,6 +99,7 @@ public class Bombeiro {
     public void setPatente(Set<Patente> patente) {
         this.patente = patente;
     }
+*/
 
     @Override
     public boolean equals(Object obj) {
@@ -122,5 +124,4 @@ public class Bombeiro {
     public int hashCode() {
         return getClass().hashCode();
     }
-
 }
