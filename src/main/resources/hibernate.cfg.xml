@@ -3,7 +3,7 @@ This XML file does not appear to have any style information associated with it. 
     <session-factory>
 
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/NomedoEsquema</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sistemabombeiro_a</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>

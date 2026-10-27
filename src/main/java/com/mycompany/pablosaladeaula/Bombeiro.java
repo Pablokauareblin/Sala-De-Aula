@@ -35,7 +35,7 @@ public class Bombeiro {
     @Column(name = "bom_cpf", length = 11, unique = true)
     private String Cpf;
     @Column(name = "bom_data_nacimento", nullable = false, length = 45)
-    private LocalDate datanacimento;
+    private LocalDate dataNascimento;
     @Column(name = "bom_nome_guerra", length = 45, nullable = false, unique = true)
     private String guerra;
     @OneToOne(mappedBy = "bombeiro")
@@ -43,8 +43,9 @@ public class Bombeiro {
     @OneToMany (mappedBy = "bombeiro")
     private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
     @ManyToMany
-    @JoinTable (name = "Bombeiro_has_Patente", joinColumns = @JoinColumn(name = "bom_id"))
-    
+    @JoinTable (name = "Bombeiro_has_Patente",
+            joinColumns = @JoinColumn(name = "bom_id"),
+            inverseJoinColumns = @JoinColumn(name = "pat_id"))
     private Set<Patente> patente = new HashSet<Patente>();
     
     public Bombeiro() {
@@ -59,12 +60,12 @@ public class Bombeiro {
         this.Cpf = cpf;
     }
 
-    public LocalDate getDatanacimento() {
-        return datanacimento;
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDatanacimento(LocalDate datanacimento) {
-        this.datanacimento = datanacimento;
+    public void setDataNascimento(LocalDate datanacimento) {
+        this.dataNascimento = datanacimento;
     }
 
     public Integer getId() {
@@ -91,16 +92,6 @@ public class Bombeiro {
         this.guerra = guerra;
     }
     
-/*
-    public Set<Patente> getPatente() {
-        return patente;
-    }
-    
-    public void setPatente(Set<Patente> patente) {
-        this.patente = patente;
-    }
-*/
-
     @Override
     public boolean equals(Object obj) {
 
@@ -124,4 +115,20 @@ public class Bombeiro {
     public int hashCode() {
         return getClass().hashCode();
     }
+    
+     /*@JoinTable (name = "Bombeiro_has_Patente",
+            joinColumns = @JoinColumn(name = "bom_id"),
+            inverseJoinColumns = @JoinColumn(name = "pat_id"))
+    private Set<Patente> patente = new HashSet<Patente>();
+    */
+    
+    /*
+    @OneToOne(mappedBy = "bombeiro")
+    private Usuario usuario;
+    */
+    
+    /*
+    @OneToMany (mappedBy = "bombeiro")
+    private Set<TelefoneContato> telefone = new HashSet<TelefoneContato>();
+    */
 }
